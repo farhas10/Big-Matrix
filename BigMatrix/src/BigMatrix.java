@@ -8,12 +8,22 @@
  */
 
 import java.util.List;
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.HashSet;
 
 public class BigMatrix 
 {
+	//Creating the individual HashMaps for columns and rows.
+	private HashMap<Integer, HashMap<Integer, Integer>> columns;
+	private HashMap<Integer, HashMap<Integer, Integer>> rows;
+	
+	
 	public BigMatrix()
 	{
-		throw new UnsupportedOperationException();
+		//Sets value of columns and rows.
+		columns = new HashMap<Integer, HashMap<Integer, Integer>>();
+		rows = new HashMap<Integer, HashMap<Integer, Integer>>();
 	}
 	
 	public void setValue(int row, int col, int value)
