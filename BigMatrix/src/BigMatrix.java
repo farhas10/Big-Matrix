@@ -89,7 +89,8 @@ public class BigMatrix
 	
 	public List<Integer> getNonEmptyRowsInColumn(int col)
 	{
-		throw new UnsupportedOperationException();
+		//Returns the key of every column that isn't empty.
+		return new ArrayList<Integer>(columns.keySet());
 	}
 	
 	public List<Integer> getNonEmptyCols()
