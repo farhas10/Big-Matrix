@@ -69,9 +69,15 @@ public class BigMatrix
 			
 	}
 	
+	//Retrieves the value from any point in the matrix.
 	public int getValue(int row, int col)
 	{
-		throw new UnsupportedOperationException();		
+		if (rows.containsKey(row) && rows.get(row).containsKey(col)) 
+		{
+			return rows.get(row).get(col);
+		}	
+		
+		return 0;
 	}
 	
 	public List<Integer> getNonEmptyRows()
