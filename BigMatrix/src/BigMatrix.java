@@ -90,7 +90,7 @@ public class BigMatrix
 	public List<Integer> getNonEmptyRowsInColumn(int col)
 	{
 		//Returns the key of every column that isn't empty
-		return new ArrayList<Integer>(columns.get(col).keySet());.
+		return new ArrayList<Integer>(columns.get(col).keySet());
 		
 	}
 	
@@ -101,22 +101,50 @@ public class BigMatrix
 	
 	public List<Integer> getNonEmptyColsInRow(int row)
 	{
-		throw new UnsupportedOperationException();
+		return new ArrayList<Integer>(rows.get(row).keySet());
 	}
 	
 	public int getRowSum(int row)
 	{
-		throw new UnsupportedOperationException();
+		
+		//Loop to sum all values in the row.
+		int total = 0;
+		if (rows.containsKey(row))
+		{
+			for (int current : rows.get(row).values())
+			{
+				total += current;
+			}
+		}
+		return total;
 	}
 	
 	public int getColSum(int col)
 	{
-		throw new UnsupportedOperationException();
+		
+		//Loop to sum all values in the column.
+		int total = 0;
+		if (columns.containsKey(col))
+		{
+			for (int current : columns.get(col).values())
+			{
+				total += current;
+			}
+		}
+		return total;
 	}
 	
 	public int getTotalSum()
 	{
-		throw new UnsupportedOperationException();
+		int total = 0;
+		
+		//Loops through every non-empty row.
+		for (int currentRow : getNonEmptyRows())
+		{
+			//Adds to the current total.
+			total += getRowSum(currentRow);
+		}
+		return total;
 	}
 	
 	public BigMatrix multiplyByConstant(int constant)
