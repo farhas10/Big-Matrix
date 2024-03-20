@@ -26,12 +26,15 @@ public class BigMatrix
 		rows = new HashMap<Integer, HashMap<Integer, Integer>>();
 	}
 	
+	//This is the method used to put in a new value at the specificed location.
 	public void setValue(int row, int col, int value)
 	{
+		//Checks if the location is empty.
 		if(getValue(row, col) == 0 && value == 0) {
 			return;
 		}
 		
+		//Checks the column HashMap for if the value already exists.
 		if(!columns.containsKey(col)) 
 		{
 			HashMap<Integer, Integer> currentColumn = new HashMap<Integer, Integer>();
