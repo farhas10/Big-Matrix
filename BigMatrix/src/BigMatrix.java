@@ -51,6 +51,7 @@ public class BigMatrix
 			else columns.get(col).put(row, value);
 		}
 		
+		//Checks the row HashMap for if the value already exists.
 		if (!rows.containsKey(row)) {
 			HashMap<Integer, Integer> currentRow = new HashMap<Integer, Integer>();
 			currentRow.put(col, value);
