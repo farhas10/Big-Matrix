@@ -1,9 +1,10 @@
 /**
- * Name:
- * Period: 
- * Project:
- * Date last updated: 
- * Project Description:
+ * Name: Farzad Hasan
+ * Period: 1
+ * Project: Big Matrix
+ * Date last updated: 3/20/2024
+ * Project Description: Creates a matrix which stores non-zero values 
+ * using hashMaps.
  */
 
 import java.util.List;
