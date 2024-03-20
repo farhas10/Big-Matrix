@@ -28,7 +28,42 @@ public class BigMatrix
 	
 	public void setValue(int row, int col, int value)
 	{
-		throw new UnsupportedOperationException();
+		if(getValue(row, col) == 0 && value == 0) {
+			return;
+		}
+		
+		if(!columns.containsKey(col)) 
+		{
+			HashMap<Integer, Integer> currentColumn = new HashMap<Integer, Integer>();
+			currentColumn.put(row, value);
+			columns.put(col, currentColumn);
+		} 
+		else 
+		{
+			if (value == 0) 
+			{
+				columns.get(col).remove(row);
+				if (columns.get(col).isEmpty()) columns.remove(col); 
+			} 
+			else columns.get(col).put(row, value);
+		}
+		
+		if (!rows.containsKey(row)) {
+			HashMap<Integer, Integer> currentRow = new HashMap<Integer, Integer>();
+			currentRow.put(col, value);
+			rows.put(row, currentRow);
+		}
+		
+		else {
+			if(value == 0) {
+				rows.get(row).remove(col);
+				if (rows.get(row).isEmpty()) rows.remove(row);
+			}
+			else rows.get(row).put(col, value);
+		}
+		
+		
+			
 	}
 	
 	public int getValue(int row, int col)
