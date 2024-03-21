@@ -96,11 +96,13 @@ public class BigMatrix
 	
 	public List<Integer> getNonEmptyCols()
 	{
+		//Creates ArrayList for columns.
 		return new ArrayList<Integer>(columns.keySet());
 	}
 	
 	public List<Integer> getNonEmptyColsInRow(int row)
 	{
+		//Creates ArrayList for rows.
 		return new ArrayList<Integer>(rows.get(row).keySet());
 	}
 	
