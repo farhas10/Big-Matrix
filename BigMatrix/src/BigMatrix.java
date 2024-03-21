@@ -149,11 +149,38 @@ public class BigMatrix
 	
 	public BigMatrix multiplyByConstant(int constant)
 	{
-		throw new UnsupportedOperationException();
+		BigMatrix temp = new BigMatrix();
+		HashMap<Integer, Integer> rowsMap;
+
+		//Go through each row
+		for (int row : getNonEmptyRows())
+		{
+			rowsMap = rows.get(row);
+		
+			for (int col : getNonEmptyColsInRow(row))
+			{
+				//Multiplies every value by appropriate constant
+				temp.setValue(row, col, rowsMap.get(col) * constant);
+			}
+		}
+		return temp;
 	}
 	
 	public BigMatrix addMatrix(BigMatrix other)
 	{
-		throw new UnsupportedOperationException();
+				BigMatrix temp = new BigMatrix();
+				temp.columns = this.columns; 
+				temp.rows = this.rows;
+				
+				//Find the rows available in the "other" matrix.
+				for (int r : other.getNonEmptyRows())
+				{
+					//Find the columns in each row and add values to temp.
+					for (int c : other.getNonEmptyColsInRow(r))
+					{
+						temp.setValue(r, c, other.getValue(r, c) + temp.getValue(r, c));
+					}
+				}
+				return temp;
 	}
 }
